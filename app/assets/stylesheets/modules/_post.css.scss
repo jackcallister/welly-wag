@@ -1,21 +1,17 @@
 .post {
-  @include flexbox;
   margin-bottom: 2em;
 
-  article {
+  hgroup {
+    @include flexbox;
 
-    hgroup {
-      @include flexbox;
-
+    a {
+      line-height: 1.7;
+    }
+    h1 {
+      line-height: 1;
+      margin-right: 0.4em;
       a {
-        line-height: 1.7;
-      }
-      h1 {
         line-height: 1;
-        margin-right: 0.4em;
-        a {
-          line-height: 1;
-        }
       }
     }
   }

@@ -55,7 +55,7 @@ describe PostsController, type: :controller do
 
   describe "GET show" do
     before { get :show, id: link.id }
-    it { expect(response.status).to eq(302) }
+    it { expect(response.status).to eq(200) }
   end
 
   describe "DELETE destroy" do

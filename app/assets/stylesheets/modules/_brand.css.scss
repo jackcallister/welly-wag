@@ -1,0 +1,17 @@
+.brand {
+  @include flexbox;
+  @include align-items(center);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  hgroup {
+    display: none;
+
+    @media #{$tablet} {
+      display: block;
+      margin-left: 1em;
+    }
+  }
+}

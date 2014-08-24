@@ -3,9 +3,8 @@
 FactoryGirl.define do
   factory :user do
     sequence(:email) { |n| "#{n + 1}-user@example.com" }
+    sequence(:nickname) { |n| "#{n + 1}-nickname" }
     password 'password'
     password_confirmation 'password'
-    nickname "Example"
-    avatar_url "http://robohash.org/user@example.com.png"
   end
 end

@@ -1,0 +1,15 @@
+<div class="media-object profile">
+  <div class="media-body">
+    <hgroup>
+      <h1><a href=""><%= @user.nickname %></a></h1>
+    </hgroup>
+  </div>
+
+  <div class="media-image">
+    <%= render 'shared/avatar', user: @user %>
+  </div>
+</div>
+
+<% @user.posts.each do |post| %>
+  <%= render 'posts/post', post: post %>
+<% end %>

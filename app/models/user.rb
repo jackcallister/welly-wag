@@ -7,22 +7,24 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :votes
 
-  after_create :set_avatar_url
+  validates :nickname, presence: true
 
+  # Public: Check if the user can vote on the given
+  # post.
+  #
+  # Return true if the user doesn't have any
+  # exsiting votes for the post.
+  #
   def can_vote?(post)
-    !votes.where(post: post).any?
+    votes.where(post: post).blank?
   end
 
-  private
-
-  # Private: Set the avatar url to either the gravatar or an
-  # asset image.
+  # Public: The avatar image url.
   #
-  # Check that an avatar_url wasn't already set before
-  # attempting anything.
+  # Return either a gravatar image url or generated robot
+  # url image via robothash.org
   #
-  def set_avatar_url
-    hash = Digest::MD5.hexdigest(email)
-    update_attributes(avatar_url: "http://robohash.org/#{hash}?gravatar=yes") unless avatar_url
+  def avatar_url
+    "http://robohash.org/#{email}?gravatar=yes"
   end
 end

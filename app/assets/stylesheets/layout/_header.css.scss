@@ -4,15 +4,7 @@ header {
   @include justify-content(space-between);
   margin: 1em 0 3em 0;
 
-  .branding:hover {
-    cursor: pointer;
-  }
-
-  .branding hgroup {
-    display: none;
-
-    @media #{$tablet} {
-      display: block;
-    }
+  nav a {
+    margin-left: 1em;
   }
 }

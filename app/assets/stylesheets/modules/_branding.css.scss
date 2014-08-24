@@ -1,8 +1,0 @@
-.branding {
-  @include flexbox;
-  @include align-items(center);
-
-  hgroup {
-    margin-left: 1em;
-  }
-}

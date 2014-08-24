@@ -1,0 +1,7 @@
+.pagination {
+  @include flexbox;
+  margin: 3em 0 2em 0;
+  .next {
+    margin-left: auto;
+  }
+}
