@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   paginates_per 10
   belongs_to :user
   has_many :votes
+  has_many :comments
 
   validates :title, presence: true
 
@@ -17,6 +18,10 @@ class Post < ActiveRecord::Base
 
   def ranking
     votes.count.to_f + 1 / ((Time.now - created_at) ** 1.5).to_f
+  end
+
+  def top_level_comments
+    comments.where(comment_id: nil)
   end
 end
 
