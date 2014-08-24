@@ -17,7 +17,15 @@ class Post < ActiveRecord::Base
   end
 
   def ranking
-    votes.count.to_f + 1 / ((Time.now - created_at) ** 1.5).to_f
+    points / (age + 2) ** 1.8
+  end
+
+  def points
+    votes.count.to_f + comments.select(:user_id).distinct.count.to_f
+  end
+
+  def age
+    Time.now - created_at
   end
 
   def top_level_comments
