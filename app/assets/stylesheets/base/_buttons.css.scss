@@ -11,6 +11,10 @@
     cursor: pointer;
     background: lighten($blue, 10%);
   }
+
+  &:focus {
+    outline: 0;
+  }
 }
 
 .button-right {

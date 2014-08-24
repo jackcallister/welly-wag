@@ -1,3 +1,17 @@
-<%= @comment.content %>
+<div class="media-object comment">
+  <%= render 'votes/vote', resource: @comment %>
+
+  <div class="media-body">
+    <hgroup>
+      <h1><%= link_to @comment.user.nickname, user_path(@comment.user) %></h1>
+    </hgroup>
+
+    <%= @comment.content  %>
+  </div>
+
+  <div class="media-image">
+    <%= render 'shared/avatar', user: @comment.user %>
+  </div>
+</div>
 
 <%= render 'comments/form', post: @comment.post, comment: @comment %>

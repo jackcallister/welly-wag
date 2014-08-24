@@ -1,5 +1,16 @@
-<%= render 'votes/vote', resource: comment %>
-<%= comment.content %>
-<%= link_to 'Reply', comment_path(comment) %>
+<div class="media-object comment">
+  <%= render 'votes/vote', resource: comment %>
+  <div class="media-body">
+    <hgroup>
+      <h1><%= link_to comment.user.nickname, user_path(comment.user) %></h1>
+      <%= link_to 'Reply', comment_path(comment), class: 'display-url' %>
+    </hgroup>
+    <%= comment.content %>
+  </div>
+
+  <div class="media-image">
+    <%= render 'shared/avatar', user: comment.user %>
+  </div>
+</div>
 
 <%= render 'comments/comments', comments: comment.comments.ranked %>
