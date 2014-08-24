@@ -1,3 +1,7 @@
 <%= render 'posts/post', post: @post %>
 
-<%#= @post.comments %>
+<%= render 'comments/form', post: @post, comment: @comment %>
+
+<div class="comments">
+  <%= render 'comments/comments', comments: @post.top_level_comments %>
+</div>

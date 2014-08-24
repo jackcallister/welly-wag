@@ -1,0 +1,7 @@
+<%= form_for Comment.new do |f| %>
+  <%= f.text_area :content %>
+  <%= f.hidden_field :comment_id, value: comment.id if comment %>
+  <%= f.hidden_field :post_id, value: post.id %>
+
+  <%= f.submit %>
+<% end %>

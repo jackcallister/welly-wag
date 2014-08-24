@@ -1,0 +1,4 @@
+<%= comment.content %>
+<%= link_to 'Reply', comment_path(comment) %>
+
+<%= render 'comments/comments', comments: comment.comments %>
