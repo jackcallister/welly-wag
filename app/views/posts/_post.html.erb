@@ -1,0 +1,15 @@
+<div class="post">
+  <%= render 'votes/vote', post: post %>
+
+  <article>
+    <hgroup>
+      <h1><%= link_to post.title, post_path(post) %></h1>
+      <%= link_to post.display_url_with_brackets, post.url, class: 'display-url', target: '_blank' if post.url? %>
+    </hgroup>
+    <%= post.description %>
+  </article>
+
+  <figure class="avatar right">
+    <%= image_tag post.user.avatar_url %>
+  </figure>
+</div>

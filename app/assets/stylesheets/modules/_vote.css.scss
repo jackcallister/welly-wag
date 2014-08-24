@@ -1,0 +1,11 @@
+.vote {
+  @include flexbox;
+  @include flex-direction(column);
+  @include align-items(center);
+  margin-top: 4px;
+  margin-right: 1em;
+
+  form {
+    @include border-box;
+  }
+}

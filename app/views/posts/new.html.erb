@@ -1,0 +1,7 @@
+<%= form_for @post do |f| %>
+  Title: <%= f.text_field :title %><br>
+  URL (optional): <%= f.url_field :url %><br>
+  Description: <%= f.text_area :description %><br>
+
+  <%= f.submit %>
+<% end %>

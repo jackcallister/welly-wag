@@ -1,0 +1,10 @@
+$blue: #252C46;
+$grey: #9295A2;
+
+$primary: $blue;
+$light-primary: lighten($primary, 65%);
+
+$body-color: $grey;
+
+$link-color: $primary;
+$link-hover-color: $body-color;

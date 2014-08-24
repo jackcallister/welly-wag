@@ -1,0 +1,12 @@
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: $primary;
+  font-weight: 300;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover { color: $link-hover-color; }
+}
