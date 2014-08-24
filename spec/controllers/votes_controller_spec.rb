@@ -9,9 +9,9 @@ describe VotesController, type: :controller do
     before do
       sign_in user
       request.env["HTTP_REFERER"] = '/'
-      post :create, vote: { post_id: link.id }
+      post :create, post_id: link.id
     end
 
-    it { expect(assigns(:post)).to eq(link) }
+    it { expect(assigns(:voteable)).to eq(link) }
   end
 end

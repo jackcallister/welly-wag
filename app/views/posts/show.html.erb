@@ -3,5 +3,5 @@
 <%= render 'comments/form', post: @post, comment: @comment %>
 
 <div class="comments">
-  <%= render 'comments/comments', comments: @post.top_level_comments %>
+  <%= render 'comments/comments', comments: @post.comments.root.ranked %>
 </div>

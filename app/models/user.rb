@@ -9,16 +9,6 @@ class User < ActiveRecord::Base
 
   validates :nickname, presence: true
 
-  # Public: Check if the user can vote on the given
-  # post.
-  #
-  # Return true if the user doesn't have any
-  # exsiting votes for the post.
-  #
-  def can_vote?(post)
-    votes.where(post: post).blank?
-  end
-
   # Public: The avatar image url.
   #
   # Return either a gravatar image url or generated robot
