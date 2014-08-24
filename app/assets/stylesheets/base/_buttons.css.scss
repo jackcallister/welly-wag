@@ -1,0 +1,18 @@
+.button {
+  border: none;
+  background: $blue;
+  border: 1px solid $blue;
+  color: $white;
+  padding: 0.8em 1.6em;
+  font-size: 0.8em;
+  border-radius: 2px;
+
+  &:hover {
+    cursor: pointer;
+    background: lighten($blue, 10%);
+  }
+}
+
+.button-right {
+  float: right;
+}
