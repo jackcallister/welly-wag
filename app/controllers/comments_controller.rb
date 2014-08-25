@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!, except: :show
+  before_action :authenticate_user!
 
   def show
     @comment = Comment.find(params[:id])
