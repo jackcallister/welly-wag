@@ -1,15 +1,17 @@
 class Comment < ActiveRecord::Base
   include Voteable
   include Rankable
+  include Notifiable
+
+  NOTIFICATION_MESSAGE = "Someone replied to your comment."
 
   belongs_to :post
   belongs_to :user
-  belongs_to :comment
-  has_many   :comments
   belongs_to :parent, polymorphic: true
+  has_many   :comments, foreign_key: 'parent_id'
 
   validates :content, presence: true
 
   scope :ranked, -> { all.sort_by(&:ranking).reverse }
-  scope :root, -> { where(comment_id: nil) }
+  scope :root, -> { where('post_id = parent_id') }
 end
