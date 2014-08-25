@@ -1,6 +1,7 @@
 <%= form_for Comment.new do |f| %>
   <%= f.text_area :content, placeholder: "Enter you comment. Be a nice human." %>
-  <%= f.hidden_field :comment_id, value: comment.id if comment %>
+  <%= f.hidden_field :parent_id, value: parent.id %>
+  <%= f.hidden_field :parent_type, value: parent.class.to_s %>
   <%= f.hidden_field :post_id, value: post.id %>
 
   <%= f.submit 'Comment', class: 'button button-right' %>
