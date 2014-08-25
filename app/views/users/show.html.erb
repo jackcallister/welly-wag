@@ -2,6 +2,7 @@
   <div class="media-body">
     <hgroup>
       <h1><a href=""><%= @user.nickname %></a></h1>
+      <span>You have <%= pluralize(@user.notifications.count, 'notification') %>.</span>
     </hgroup>
   </div>
 
@@ -9,6 +10,10 @@
     <%= render 'shared/avatar', user: @user %>
   </div>
 </div>
+
+<% @user.notifications.each do |notification| %>
+
+<% end %>
 
 <% @user.posts.each do |post| %>
   <%= render 'posts/post', post: post %>
