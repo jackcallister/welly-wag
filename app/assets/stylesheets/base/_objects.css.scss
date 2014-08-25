@@ -12,13 +12,13 @@
     hgroup {
       @include flexbox;
 
-      a {
+      span, a {
         line-height: 1.7;
       }
       h1 {
         line-height: 1;
         margin-right: 0.4em;
-        a {
+        span, a {
           line-height: 1;
         }
       }
