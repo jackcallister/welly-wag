@@ -2,6 +2,7 @@
   <div class="media-body">
     <hgroup>
       <h1><a href=""><%= @user.nickname %></a></h1>
+      <%= link_to 'Sign out', destroy_user_session_path, method: :delete if @user == current_user %>
     </hgroup>
   </div>
 

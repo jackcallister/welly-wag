@@ -1,0 +1,10 @@
+.alert {
+  padding: 0.8em 1em;
+  border-radius: 2px;
+  margin-bottom: 1em;
+}
+
+.alert-notice {
+  background: $blue;
+  color: $white;
+}
