@@ -1,8 +1,7 @@
 @mixin field {
   width: 100%;
-  border: 1px solid $light-grey;
+  border: 1px solid transparent;
   background: $white;
-  border-radius: 2px;
   margin-bottom: 1em;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
