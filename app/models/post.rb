@@ -2,6 +2,8 @@ class Post < ActiveRecord::Base
   include Voteable
   include Rankable
 
+  NOTIFICATION_MESSAGE = "You have a new comment on your post."
+
   paginates_per 10
 
   belongs_to :user
