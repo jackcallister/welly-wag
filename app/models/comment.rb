@@ -6,6 +6,7 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :comment
   has_many   :comments
+  belongs_to :parent, polymorphic: true
 
   validates :content, presence: true
 
