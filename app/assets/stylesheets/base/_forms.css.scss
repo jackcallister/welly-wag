@@ -25,6 +25,10 @@
   }
 }
 
+form {
+  overflow: hidden;
+}
+
 textarea {
   @include field;
   height: 5em;

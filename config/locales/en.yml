@@ -24,3 +24,15 @@ en:
     pagination:
       previous: "Prev"
       next: "Next"
+
+  activerecord:
+      errors:
+          models:
+              user:
+                  attributes:
+                      email:
+                          blank: "needs to be present."
+                      password:
+                          blank: "needs to be present."
+                      nickname:
+                          blank: "needs to be present."
