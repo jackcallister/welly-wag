@@ -3,6 +3,7 @@
 FactoryGirl.define do
   factory :vote do
     user
-    post
+    voteable_id 1
+    voteable_type 'Post'
   end
 end
