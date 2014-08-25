@@ -1,15 +1,16 @@
 class VotesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post
+  before_filter :load_voteable
 
   def create
-    @post.votes.build(user: current_user).save
+    @voteable.votes.build(user: current_user).save
     redirect_to :back
   end
 
   private
 
-  def set_post
-    @post = Post.find(params[:vote][:post_id])
+  def load_voteable
+    resource, id = request.path.split('/')[1, 2]
+    @voteable = resource.singularize.classify.constantize.find(id)
   end
 end

@@ -1,0 +1,23 @@
+.new_comment {
+  overflow: hidden;
+  margin-bottom: 1em;
+}
+
+.comments {
+  margin-top: 2em;
+  padding-top: 2em;
+  margin-bottom: 2em;
+  border-top: 1px solid $light-grey;
+}
+
+.comments .sub-comment {
+  margin-left: 30px;
+  padding-left: 16px;
+  border-left: 1px solid $light-grey;
+}
+
+.comments > .sub-comment {
+  margin-left: 0;
+  padding-left: 0px;
+  border-left: 0;
+}

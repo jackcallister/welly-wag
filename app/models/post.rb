@@ -1,7 +1,11 @@
 class Post < ActiveRecord::Base
+  include Voteable
+  include Rankable
+
   paginates_per 10
+
   belongs_to :user
-  has_many :votes
+  has_many :comments
 
   validates :title, presence: true
 
@@ -13,10 +17,6 @@ class Post < ActiveRecord::Base
 
   def display_url_with_brackets
     "(" + display_url + ")" if url
-  end
-
-  def ranking
-    votes.count.to_f + 1 / ((Time.now - created_at) ** 1.5).to_f
   end
 end
 

@@ -1,0 +1,33 @@
+.media-object {
+  @include flexbox;
+  margin-bottom: 2em;
+
+  .media-image {
+    margin-left: auto;
+  }
+
+  .media-body {
+    max-width: 75%;
+
+    hgroup {
+      @include flexbox;
+
+      a {
+        line-height: 1.7;
+      }
+      h1 {
+        line-height: 1;
+        margin-right: 0.4em;
+        a {
+          line-height: 1;
+        }
+      }
+    }
+  }
+}
+
+.media-header {
+  margin-bottom: 2em;
+  padding-bottom: 2em;
+  border-bottom: 1px solid $light-grey;
+}

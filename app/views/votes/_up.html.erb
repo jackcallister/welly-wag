@@ -1,5 +1,4 @@
-<%= form_for Vote.new, url: votes_path, method: :post do |f| %>
-  <%= f.hidden_field :post_id, value: post.id %>
+<%= form_for [voteable, Vote.new] do |f| %>
   <div class='icon-vote' data-action="submit"></div>
   <%= f.submit '', type: :hidden %>
 <% end %>

@@ -1,0 +1,28 @@
+textarea {
+  width: 100%;
+  border: 1px solid $light-grey;
+  background: $light-grey;
+  border-radius: 2px;
+  height: 5em;
+  padding: 1em;
+  font-size: 1em;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  margin-bottom: 1em;
+
+  &::-webkit-input-placeholder {
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
+
+  &:focus {
+    outline: 0;
+    border: 1px solid lighten($grey, 20%);
+
+    &::-webkit-input-placeholder {
+      opacity: 0;
+    }
+  }
+}

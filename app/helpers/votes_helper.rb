@@ -1,12 +1,12 @@
 module VotesHelper
 
-  def vote_form(post)
-    if current_user && current_user.can_vote?(post)
-      render 'votes/up', post: post
+  def vote_form(resource)
+    if current_user && resource.voteable?(current_user)
+      render 'votes/up', voteable: resource
     elsif current_user
       render 'votes/voted'
     else
-      render 'votes/up', post: post
+      render 'votes/up', voteable: resource
     end
   end
 end
