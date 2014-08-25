@@ -1,15 +1,13 @@
-textarea {
+@mixin field {
   width: 100%;
   border: 1px solid $light-grey;
-  background: $light-grey;
+  background: $white;
   border-radius: 2px;
-  height: 5em;
-  padding: 1em;
-  font-size: 1em;
+  margin-bottom: 1em;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
-  margin-bottom: 1em;
+  font-size: 1em;
 
   &::-webkit-input-placeholder {
     -webkit-transition: all 0.3s ease-out;
@@ -25,4 +23,19 @@ textarea {
       opacity: 0;
     }
   }
+}
+
+textarea {
+  @include field;
+  height: 5em;
+  padding: 1em;
+}
+
+.input {
+  @include field;
+  padding: 0.6em 1em;
+}
+
+.field_with_errors .input {
+  border: 1px solid $blue;
 }

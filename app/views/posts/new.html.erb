@@ -1,7 +1,20 @@
-<%= form_for @post do |f| %>
-  Title: <%= f.text_field :title %><br>
-  URL (optional): <%= f.url_field :url %><br>
-  Description: <%= f.text_area :description %><br>
+<div class="media-object">
+  <div class="media-body media-full">
+    <p>Submit a link or comment to get a discussion started.</p>
+    <p>Try to keep it relevant and think of what the community would like to see or hear.</p>
+  </div>
+</div>
 
-  <%= f.submit %>
+
+
+<%= form_for @post do |f| %>
+  <% if @post.errors.any? %>
+    <div class="alert alert-notice">Whoa there, that wasn't quite right. Have another crack at it.</div>
+  <% end %>
+
+  <%= f.text_field :title, placeholder: 'Post title', class: 'input' %>
+  <%= f.url_field :url, placeholder: 'http://myawesomelink.co.nz', class: 'input' %>
+  <%= f.text_area :description, placeholder: 'Why should people check this out?' %>
+
+  <%= f.submit 'Submit', class: 'button button-right' %>
 <% end %>
