@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 20140825090512) do
     t.text     "content",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "parent_id",   null: false
     t.integer  "post_id"
+    t.integer  "parent_id",   null: false
     t.string   "parent_type", null: false
   end
 
@@ -30,14 +30,14 @@ ActiveRecord::Schema.define(version: 20140825090512) do
 
   create_table "notifications", force: true do |t|
     t.string   "message"
-    t.integer  "recipient_id", null: false
-    t.string   "sender_type",  null: false
-    t.integer  "sender_id",    null: false
+    t.integer  "recipient_id",    null: false
+    t.string   "notifiable_type", null: false
+    t.integer  "notifiable_id",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "notifications", ["sender_id", "sender_type"], name: "index_notifications_on_sender_id_and_sender_type", using: :btree
+  add_index "notifications", ["notifiable_id", "notifiable_type"], name: "index_notifications_on_notifiable_id_and_notifiable_type", using: :btree
 
   create_table "posts", force: true do |t|
     t.string   "title"

@@ -9,6 +9,7 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :parent, polymorphic: true
   has_many   :comments, foreign_key: 'parent_id'
+  has_many   :notifications, as: :notifiable
 
   validates :content, presence: true
 

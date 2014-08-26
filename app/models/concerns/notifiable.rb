@@ -1,5 +1,8 @@
 require 'active_support/concern'
 
+# Notifiable: Create a notification for the user of the parent object. For example
+# after a post has been commented on created a notification for the author of that post.
+#
 module Notifiable
   extend ActiveSupport::Concern
 
@@ -17,8 +20,8 @@ module Notifiable
       Notification.create(
         message: klass::NOTIFICATION_MESSAGE,
         recipient_id: resource.user_id,
-        sender_type: parent_type,
-        sender_id: id
+        notifiable_type: parent_type,
+        notifiable_id: parent_id
       )
     end
   end
