@@ -18,11 +18,13 @@
     <%= render "notifications/#{notification.notifiable_type.downcase}", notification: notification %>
   <% end %>
 
-  <% if @user.invites.available.any? %><p>Share your invite codes so more people can join the fun.<p><% end %>
+  <% if @user.invites.available.any? %>
+    <p>Share your invite codes so more people can join the fun.<p>
+  <% end %>
+
   <% @user.invites.available.each do |invite| %>
     <%= render 'invites/invite', invite: invite %>
   <% end %>
-
 <% end %>
 
 <% @user.posts.each do |post| %>

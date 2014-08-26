@@ -1,0 +1,12 @@
+nav.main {
+  ul {
+    @include flexbox;
+    @include align-items(center);
+    list-style: none;
+
+    li {
+      margin-left: 1em;
+      position: relative;
+    }
+  }
+}
