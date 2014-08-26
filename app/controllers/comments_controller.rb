@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
+  include Clearable
   before_action :authenticate_user!
+  clear_notifications :comment, :show
 
   def show
     @comment = Comment.find(params[:id])
@@ -20,8 +22,9 @@ class CommentsController < ApplicationController
   def comment_params
     params[:comment].permit(
       :content,
-      :post_id,
-      :comment_id
+      :parent_type,
+      :parent_id,
+      :post_id
     )
   end
 end

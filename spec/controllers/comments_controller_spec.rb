@@ -4,7 +4,7 @@ describe CommentsController, type: :controller do
 
   let(:link) { create(:post) }
   let(:user) { create(:user) }
-  let(:comment) { create(:comment) }
+  let(:comment) { create(:comment, parent_type: 'Post', parent_id: link.id) }
 
   describe "GET show" do
 
@@ -28,7 +28,7 @@ describe CommentsController, type: :controller do
       context "with valid params" do
         it {
           expect {
-            post :create, comment: { post_id: link.id, content: "Test comment." }
+            post :create, comment: { post_id: link.id, content: 'Test comment.', parent_type: 'Post', parent_id: link.id }
           }.to change(Comment, :count).by (1)
         }
       end
@@ -36,7 +36,7 @@ describe CommentsController, type: :controller do
       context "with invalid params" do
         it {
           expect {
-            post :create, comment: { post_id: link.id, content: "" }
+            post :create, comment: { post_id: link.id, content: '' }
           }.to change(Comment, :count).by (0)
         }
       end

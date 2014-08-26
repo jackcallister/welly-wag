@@ -11,17 +11,18 @@ describe User, type: :model do
 
       it {
         expect {
-          User.create(valid_attributes.merge(code: invite.code))
+          User.create(valid_attributes)
         }.to change(User, :count).by(1)
       }
 
       it "should create new invites" do
-        user = User.create(valid_attributes.merge(code: invite.code))
+        user = User.create(valid_attributes)
         expect(user.invites.count).to eq(Invite::COUNT)
       end
     end
 
     context "without a code" do
+      before { valid_attributes.delete(:code) }
 
       it {
         expect {
@@ -31,7 +32,11 @@ describe User, type: :model do
     end
 
     context "with an expired code" do
-      before { invite.expired = true; invite.save }
+      before do
+        valid_attributes.delete(:code)
+        invite.expired = true;
+        invite.save
+      end
 
       it {
         expect {

@@ -3,7 +3,7 @@
   <div class="media-body">
     <hgroup>
       <h1><%= link_to comment.user.nickname, user_path(comment.user) %></h1>
-      <%= link_to 'Reply', comment_path(comment), class: 'display-url' %>
+      <%= link_to 'Reply', comment_path(comment), class: 'i' %>
     </hgroup>
     <%= comment.content %>
   </div>

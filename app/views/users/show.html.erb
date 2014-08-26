@@ -2,7 +2,9 @@
   <div class="media-body">
     <hgroup>
       <h1><a href=""><%= @user.nickname %></a></h1>
-      <%= link_to 'Sign out', destroy_user_session_path, method: :delete if @user == current_user %>
+      <% if @user == current_user %>
+        <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+      <% end %>
     </hgroup>
   </div>
 
@@ -11,6 +13,19 @@
   </div>
 </div>
 
+<% if @user == current_user %>
+  <% @user.notifications.each do |notification| %>
+    <%= render "notifications/#{notification.notifiable_type.downcase}", notification: notification %>
+  <% end %>
+
+  <% if @user.invites.available.any? %><p>Share your invite codes so more people can join the fun.<p><% end %>
+  <% @user.invites.available.each do |invite| %>
+    <%= render 'invites/invite', invite: invite %>
+  <% end %>
+
+<% end %>
+
 <% @user.posts.each do |post| %>
   <%= render 'posts/post', post: post %>
 <% end %>
+

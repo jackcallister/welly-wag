@@ -14,4 +14,8 @@
   </div>
 </div>
 
-<%= render 'comments/form', post: @comment.post, comment: @comment %>
+<%= render 'comments/form', post: @comment.post, parent: @comment %>
+
+<div class="comments">
+  <%= render 'comments/comments', comments: @comment.comments.ranked %>
+</div>

@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :post do
-    title "Example"
-    url "http://example.com"
-    description "Example description"
+    title { Faker::Lorem.sentence([4, 8, 20].sample) }
+    url { Faker::Internet.url }
+    description { Faker::Lorem.sentence([4, 8, 20].sample) }
     user
   end
 end
