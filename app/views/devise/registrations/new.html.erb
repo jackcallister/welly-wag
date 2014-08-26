@@ -2,8 +2,13 @@
   <%= devise_error_messages! %>
 
   <%= f.email_field :email, autocomplete: "off", placeholder: 'Email', class: 'input' %>
+
+  <%= f.text_field :code, autocomplete: "off", placeholder: 'Invite code', class: 'input' %>
+
   <%= f.text_field :nickname, autocomplete: "off", placeholder: 'Nickname', class: 'input'  %>
+
   <%= f.password_field :password, autocomplete: "off", placeholder: 'Password', class: 'input' %>
+
   <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Password confirmation', class: 'input' %>
 
   <% if devise_mapping.rememberable? -%>

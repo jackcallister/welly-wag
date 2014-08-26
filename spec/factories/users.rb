@@ -6,5 +6,6 @@ FactoryGirl.define do
     sequence(:nickname) { |n| "#{n + 1}-nickname" }
     password 'password'
     password_confirmation 'password'
+    code { Invite.generate.code }
   end
 end

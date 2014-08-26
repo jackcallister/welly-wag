@@ -11,19 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140824093912) do
+ActiveRecord::Schema.define(version: 20140826105629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: true do |t|
-    t.integer  "post_id",    null: false
-    t.integer  "user_id",    null: false
-    t.integer  "comment_id"
-    t.text     "content",    null: false
+    t.integer  "user_id",     null: false
+    t.text     "content",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "post_id"
+    t.integer  "parent_id",   null: false
+    t.string   "parent_type", null: false
+  end
+
+  add_index "comments", ["parent_id", "parent_type"], name: "index_comments_on_parent_id_and_parent_type", using: :btree
+
+  create_table "invites", force: true do |t|
+    t.boolean  "expired",    default: false
+    t.string   "code",                       null: false
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "notifications", force: true do |t|
+    t.string   "message"
+    t.integer  "recipient_id",    null: false
+    t.string   "notifiable_type", null: false
+    t.integer  "notifiable_id",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "notifications", ["notifiable_id", "notifiable_type"], name: "index_notifications_on_notifiable_id_and_notifiable_type", using: :btree
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -48,6 +70,7 @@ ActiveRecord::Schema.define(version: 20140824093912) do
     t.string   "nickname"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "code"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -57,8 +80,8 @@ ActiveRecord::Schema.define(version: 20140824093912) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "voteable_id"
-    t.string   "voteable_type"
+    t.integer  "voteable_id",   null: false
+    t.string   "voteable_type", null: false
   end
 
   add_index "votes", ["voteable_id", "voteable_type"], name: "index_votes_on_voteable_id_and_voteable_type", using: :btree
