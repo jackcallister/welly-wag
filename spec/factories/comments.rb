@@ -5,5 +5,7 @@ FactoryGirl.define do
     post
     user
     content "Test"
+    parent_id 1
+    parent_type "Post"
   end
 end

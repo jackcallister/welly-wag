@@ -2,7 +2,10 @@
   <div class="media-body">
     <hgroup>
       <h1><a href=""><%= @user.nickname %></a></h1>
-      <span>You have <%= pluralize(@user.notifications.count, 'notification') %>.</span>
+      <% if @user == current_user %>
+        <span>You have <%= pluralize(@user.notifications.count, 'notification') %>.</span>
+        <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+      <% end %>
     </hgroup>
   </div>
 

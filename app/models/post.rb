@@ -11,6 +11,9 @@ class Post < ActiveRecord::Base
 
   validates :title, presence: true
 
+  validates :url, presence: true, :if => Proc.new { |p| p.description.blank? }
+  validates :description, presence: true, :if => Proc.new { |p| p.url.blank? }
+
   scope :ranked, -> { all.sort_by(&:ranking).reverse }
 
   def display_url
