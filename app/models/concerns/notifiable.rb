@@ -7,8 +7,6 @@ module Notifiable
   extend ActiveSupport::Concern
 
   included do
-    has_one :notification, foreign_key: 'sender_id'
-
     after_create :notify
 
     private
