@@ -1,3 +1,8 @@
 <nav>
-  <%= link_to 'Make a post', new_post_path %>
+  <% if current_user %>
+    <%= link_to 'Make a post', new_post_path %>
+    <%= link_to "Your profile (#{current_user.notifications.count})", user_path(current_user) %>
+  <% else %>
+    <%= link_to 'Join', new_user_registration_path %>
+  <% end %>
 </nav>
