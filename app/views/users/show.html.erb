@@ -3,7 +3,6 @@
     <hgroup>
       <h1><a href=""><%= @user.nickname %></a></h1>
       <% if @user == current_user %>
-        <span>You have <%= pluralize(@user.notifications.count, 'notification') %>.</span>
         <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
       <% end %>
     </hgroup>
@@ -14,10 +13,13 @@
   </div>
 </div>
 
-<% @user.notifications.each do |notification| %>
-
+<% if @user == current_user %>
+  <% @user.notifications.each do |notification| %>
+    <%= render "notifications/#{notification.notifiable_type.downcase}", notification: notification %>
+  <% end %>
 <% end %>
 
 <% @user.posts.each do |post| %>
   <%= render 'posts/post', post: post %>
 <% end %>
+
