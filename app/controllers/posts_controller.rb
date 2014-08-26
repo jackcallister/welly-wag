@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-  include ::Notifiable
+  include Clearable
   before_action :authenticate_user!, except: [:index, :show]
-  clear_notifications! :post, :show
+  clear_notifications :post, :show
 
   def index
     @posts = Kaminari.paginate_array(Post.ranked).page(params[:page]).per(10)

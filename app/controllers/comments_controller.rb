@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
-  include ::Notifiable
+  include Clearable
   before_action :authenticate_user!
-  clear_notifications! :comment, :show
+  clear_notifications :comment, :show
 
   def show
     @comment = Comment.find(params[:id])
