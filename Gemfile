@@ -35,6 +35,10 @@ group :development do
   gem 'shoulda-matchers'
   # Clean test database with database_cleaner
   gem 'database_cleaner', git: 'git@github.com:bmabey/database_cleaner.git'
+  # Use Capistrano for deployment
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
 end
 
 gem 'factory_girl_rails'
