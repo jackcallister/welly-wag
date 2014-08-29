@@ -1,0 +1,9 @@
+.posts .media-object {
+  margin-bottom: 2em;
+  padding-bottom: 2.4em;
+  border-bottom: 1px solid $light-grey;
+
+  &:last-of-type {
+    border-bottom: 0;
+  }
+}

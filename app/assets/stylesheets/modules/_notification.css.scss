@@ -1,8 +1,16 @@
+.notification {
+  margin-bottom: 1em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
 .notification-badge {
   min-width: 18px;
   border-radius: 20px;
   padding: 2px;
-  background: red;
+  background: $red;
   position: absolute;
   right: 2px;
   text-align: center;

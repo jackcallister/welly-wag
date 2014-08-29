@@ -1,5 +1,5 @@
-<%= notification_badge(notifications) if defined? notifications %>
 <figure class="avatar">
+  <%= notification_badge(notifications) if defined? notifications %>
   <%= link_to user_path(user.id) do %>
     <%= image_tag user.avatar_url %>
   <% end %>

@@ -1,0 +1,14 @@
+<div class="media-container media-header">
+  <div class="media-object">
+    <div class="media-body">
+      <hgroup>
+        <h1>You've got some notifications!</h1>
+        <%= link_to 'Delete them', '' %>
+      </hgroup>
+    </div>
+  </div>
+
+  <% notifications.each do |notification| %>
+    <%= render "notifications/#{notification.notifiable_type.downcase}", notification: notification %>
+  <% end %>
+</div>
