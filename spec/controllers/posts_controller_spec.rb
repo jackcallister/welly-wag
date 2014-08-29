@@ -32,7 +32,7 @@ describe PostsController, type: :controller do
 
       it {
         expect {
-          post :create, { post: { title: 'test' } }
+          post :create, { post: { title: 'test', url: 'http://example.com' } }
         }.to change(Post, :count).by (1)
       }
     end
