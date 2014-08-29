@@ -1,8 +1,10 @@
-<nav>
-  <% if current_user %>
-    <%= link_to 'Make a post', new_post_path %>
-    <%= link_to "Your profile (#{current_user.notifications.count})", user_path(current_user) %>
-  <% else %>
-    <%= link_to 'Join', new_user_registration_path %>
-  <% end %>
+<nav class="main">
+  <ul>
+    <% if current_user %>
+      <li><%= link_to 'Make a post', new_post_path %></li>
+      <li><%= render 'shared/avatar', user: current_user, notifications: current_user.notifications %></li>
+    <% else %>
+      <li><%= link_to 'Join', new_user_registration_path %></li>
+    <% end %>
+  </ul>
 </nav>

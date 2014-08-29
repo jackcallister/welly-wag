@@ -6,9 +6,14 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :votes
+  has_many :invites
   has_many :notifications, foreign_key: 'recipient_id'
 
   validates :nickname, presence: true
+  validates :code,     presence: true
+
+  before_validation :validate_code
+  after_create      :generate_invites
 
   # Public: The avatar image url.
   #
@@ -17,5 +22,26 @@ class User < ActiveRecord::Base
   #
   def avatar_url
     "http://robohash.org/#{email}?gravatar=yes"
+  end
+
+  private
+
+  def validate_code
+    invite = Invite.where(code: code, expired: false).first
+
+    if !invite
+      errors.add :invite_code, "is invalid, ask around on twitter for one."
+    else
+      invite.expired = true
+      invite.save
+    end
+  end
+
+  def generate_invites
+    Invite::COUNT.times do
+      invite = Invite.generate
+      invite.user = self
+      invite.save
+    end
   end
 end

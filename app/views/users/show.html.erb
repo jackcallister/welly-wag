@@ -1,25 +1,33 @@
-<div class="media-object media-header">
-  <div class="media-body">
-    <hgroup>
-      <h1><a href=""><%= @user.nickname %></a></h1>
-      <% if @user == current_user %>
-        <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-      <% end %>
-    </hgroup>
-  </div>
+<div class="media-container">
+  <div class="media-object">
+    <div class="media-body">
+      <hgroup>
+        <h1><a href=""><%= @user.nickname %></a></h1>
+        <% if @user == current_user %>
+          <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+        <% end %>
+      </hgroup>
+    </div>
 
-  <div class="media-image">
-    <%= render 'shared/avatar', user: @user %>
+    <div class="media-image">
+      <%= render 'shared/avatar', user: @user %>
+    </div>
   </div>
 </div>
 
-<% if @user == current_user %>
-  <% @user.notifications.each do |notification| %>
-    <%= render "notifications/#{notification.notifiable_type.downcase}", notification: notification %>
-  <% end %>
-<% end %>
+<%= render 'notifications/notifications', notifications: @user.notifications if @user == current_user && @user.notifications.any? %>
 
-<% @user.posts.each do |post| %>
-  <%= render 'posts/post', post: post %>
-<% end %>
+<%= render 'invites/invites', invites: @user.invites.available if @user == current_user && @user.invites.available.any? %>
 
+<% if @user.posts.any? %>
+
+  <div class="media-object media-header">
+    <div class="media-body">
+      <hgroup>
+        <h1>Previous posts</h1>
+      </hgroup>
+    </div>
+  </div>
+
+  <%= render 'posts/posts', posts: @user.posts %>
+<% end %>

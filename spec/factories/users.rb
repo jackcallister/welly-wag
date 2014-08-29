@@ -6,5 +6,6 @@ FactoryGirl.define do
     nickname { Faker::Name.name }
     password 'password'
     password_confirmation 'password'
+    code { Invite.generate.code }
   end
 end

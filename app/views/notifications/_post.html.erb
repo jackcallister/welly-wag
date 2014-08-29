@@ -1,1 +1,10 @@
-<p><%= notification.notifiable.user.nickname %> commented on your <strong><%= link_to 'post', post_path(notification.notifiable) %></strong>.</p>
+<div class="media-object notification align-middle small-image">
+  <div class="media-image">
+    <%= render 'shared/avatar', user: notification.notifiable.user %>
+  </div>
+
+  <div class="media-body">
+    <p><%= notification.notifiable.user.nickname %> commented on your <strong><%= link_to 'post', post_path(notification.notifiable) %></strong>.</p>
+  </div>
+</div>
+
