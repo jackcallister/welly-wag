@@ -46,7 +46,9 @@ group :development do
   gem 'capistrano-rbenv'
 end
 
-gem 'factory_girl_rails'
+group :development, :test do
+  gem 'factory_girl_rails'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
