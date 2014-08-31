@@ -4,11 +4,10 @@ set :repo_url, 'git@github.com:jarsbe/welly-wag.git'
 
 set :ssh_options, { forward_agent: true, port: 22 }
 
-set :rbenv_type, :user
 set :rbenv_ruby, '2.1.2'
+set :rbenv_type, :user
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
-set :rbenv_roles, :all
 
 server '107.170.198.172', user: 'welly-wag', roles: %w{web app db}
 
