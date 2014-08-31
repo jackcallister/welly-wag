@@ -31,6 +31,8 @@ gem 'kaminari'
 
 gem 'faker'
 
+gem 'redcarpet'
+
 group :development do
   gem 'rspec-rails', '3.0.0.rc1'
   # Easy peasy matchers

@@ -1,16 +1,22 @@
-<div class="media-object comment">
-  <%= render 'votes/vote', resource: @comment %>
+<div class="media-container">
+  <div class="media-object">
+    <div class="media-prefix">
+      <%= render 'votes/vote', resource: @comment %>
+    </div>
 
-  <div class="media-body">
-    <hgroup>
-      <h1><%= link_to @comment.user.nickname, user_path(@comment.user) %></h1>
-    </hgroup>
+    <div class="media-body">
+      <hgroup>
+        <h1><%= link_to @comment.user.name, user_path(@comment.user) %></h1>
+      </hgroup>
 
-    <%= @comment.content  %>
-  </div>
+      <div class="content">
+        <%= @comment.content_html %>
+      </div>
+    </div>
 
-  <div class="media-image">
-    <%= render 'shared/avatar', user: @comment.user %>
+    <div class="media-image">
+      <%= render 'shared/avatar', user: @comment.user %>
+    </div>
   </div>
 </div>
 

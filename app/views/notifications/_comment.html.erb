@@ -1,9 +1,9 @@
 <div class="media-object notification align-middle small-image">
-  <div class="media-image">
-    <%= render 'shared/avatar', user: notification.notifiable.user %>
+  <div class="media-prefix">
+    <%= render 'shared/avatar', user: notification.notifiable.parent.user %>
   </div>
 
   <div class="media-object">
-    <p><%= notification.notifiable.user.nickname %> replied to your <strong><%= link_to 'comment', comment_path(notification.notifiable) %></strong>.</p>
+    <p><%= notification.notifiable.user.name %> replied to your <strong><%= link_to 'comment', comment_path(notification.notifiable) %></strong>.</p>
   </div>
 </div>

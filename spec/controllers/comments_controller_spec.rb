@@ -36,7 +36,7 @@ describe CommentsController, type: :controller do
       context "with invalid params" do
         it {
           expect {
-            post :create, comment: { post_id: link.id, content: '' }
+            post :create, comment: { post_id: link.id, content: '', parent_type: 'Post', parent_id: link.id }
           }.to change(Comment, :count).by (0)
         }
       end

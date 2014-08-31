@@ -1,11 +1,16 @@
 <div class="media-object small-image">
-  <%= render 'votes/vote', resource: comment %>
+  <div class="media-prefix">
+    <%= render 'votes/vote', resource: comment %>
+  </div>
+
   <div class="media-body">
     <hgroup>
-      <h1><%= link_to comment.user.nickname, user_path(comment.user) %></h1>
+      <h1><%= link_to comment.user.name, user_path(comment.user) %></h1>
       <%= link_to 'Reply', comment_path(comment), class: 'i' %>
     </hgroup>
-    <%= comment.content %>
+    <div class="content">
+      <%= comment.content_html %>
+    </div>
   </div>
 
   <div class="media-image">

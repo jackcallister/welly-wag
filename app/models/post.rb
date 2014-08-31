@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
   include Voteable
   include Rankable
+  include Markdownable
 
   NOTIFICATION_MESSAGE = "You have a new comment on your post."
 
@@ -11,9 +12,13 @@ class Post < ActiveRecord::Base
   has_many :notifications, as: :notifiable
 
   validates :title, presence: true
+  validates :url, format: URI::regexp(%w(http https)), unless: 'description.present?'
 
   validates :url, presence: true, :if => Proc.new { |p| p.description.blank? }
   validates :description, presence: true, :if => Proc.new { |p| p.url.blank? }
+
+  validates :url, length: { is: 0, message: 'must be blank' }, unless: 'description.blank?'
+  validates :description, length: { is: 0, message: 'must be blank' }, unless: 'url.blank?'
 
   scope :ranked, -> { all.sort_by(&:ranking).reverse }
 

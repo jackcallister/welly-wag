@@ -2,6 +2,7 @@ class Comment < ActiveRecord::Base
   include Voteable
   include Rankable
   include Notifiable
+  include Markdownable
 
   NOTIFICATION_MESSAGE = "Someone replied to your comment."
 

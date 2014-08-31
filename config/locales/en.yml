@@ -34,5 +34,5 @@ en:
                           blank: "needs to be present."
                       password:
                           blank: "needs to be present."
-                      nickname:
+                      name:
                           blank: "needs to be present."

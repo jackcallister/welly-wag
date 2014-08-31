@@ -6,17 +6,18 @@
 
 .media-object {
   @include flexbox;
+  @include align-items(flex-start);
+
+  .media-prefix {
+    margin-right: 1em;
+  }
 
   .media-image {
-    margin-left: auto;
-
-    &:first-child {
-      margin: 0 1em 0 0;
-    }
+    margin-left: 1em;
   }
 
   .media-body {
-    max-width: 80%;
+    @include flex(1);
 
     hgroup {
       margin-bottom: 10px;
@@ -28,10 +29,6 @@
         }
       }
     }
-  }
-
-  .media-full {
-    max-width: 100%;
   }
 
   &.align-middle {

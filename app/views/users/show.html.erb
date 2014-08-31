@@ -2,7 +2,7 @@
   <div class="media-object">
     <div class="media-body">
       <hgroup>
-        <h1><a href=""><%= @user.nickname %></a></h1>
+        <h1><%= link_to @user.name, user_path(@user) %></h1>
         <% if @user == current_user %>
           <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
         <% end %>
@@ -16,8 +16,6 @@
 </div>
 
 <%= render 'notifications/notifications', notifications: @user.notifications if @user == current_user && @user.notifications.any? %>
-
-<%= render 'invites/invites', invites: @user.invites.available if @user == current_user && @user.invites.available.any? %>
 
 <% if @user.posts.any? %>
 

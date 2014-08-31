@@ -11,9 +11,9 @@ class CommentsController < ApplicationController
     @comment = Comment.new( {user: current_user}.merge comment_params )
 
     if @comment.save
-      redirect_to post_path(comment_params[:post_id]), notice: "Comment created successfully"
+      redirect_success
     else
-      redirect_to post_path(comment_params[:post_id]), notice: "Something went wrong, please try again."
+      redirect_failure
     end
   end
 
@@ -26,5 +26,21 @@ class CommentsController < ApplicationController
       :parent_id,
       :post_id
     )
+  end
+
+  def redirect_success
+    if comment_params[:parent_type] == 'Post'
+      redirect_to post_path(comment_params[:parent_id]), notice: "Comment created successfully"
+    else
+      redirect_to comment_path(comment_params[:parent_id]), notice: "Comment created successfully"
+    end
+  end
+
+  def redirect_failure
+    if comment_params[:parent_type] == 'Post'
+      redirect_to post_path(comment_params[:parent_id]), notice: "Something went wrong, please try again."
+    else
+      redirect_to comment_path(comment_params[:parent_id]), notice: "Something went wrong, please try again."
+    end
   end
 end

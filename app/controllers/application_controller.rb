@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
   private
 
   def update_sanitized_params
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:nickname, :password, :password_confirmation, :email, :code) }
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :password, :email) }
   end
 end

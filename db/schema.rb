@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140826105629) do
+ActiveRecord::Schema.define(version: 20140831031627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,14 +28,6 @@ ActiveRecord::Schema.define(version: 20140826105629) do
 
   add_index "comments", ["parent_id", "parent_type"], name: "index_comments_on_parent_id_and_parent_type", using: :btree
 
-  create_table "invites", force: true do |t|
-    t.boolean  "expired",    default: false
-    t.string   "code",                       null: false
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "notifications", force: true do |t|
     t.string   "message"
     t.integer  "recipient_id",    null: false
@@ -50,7 +42,7 @@ ActiveRecord::Schema.define(version: 20140826105629) do
   create_table "posts", force: true do |t|
     t.string   "title"
     t.string   "url"
-    t.string   "description"
+    t.text     "description"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -67,10 +59,9 @@ ActiveRecord::Schema.define(version: 20140826105629) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.string   "nickname"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "code"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
