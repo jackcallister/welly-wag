@@ -4,5 +4,10 @@
   <%= f.hidden_field :parent_type, value: parent.class.to_s %>
   <%= f.hidden_field :post_id, value: post.id %>
 
-  <%= f.submit 'Comment', class: 'button button-right' %>
+  <div class="media-object align-middle">
+    <div class="media-body">
+      <span class="markdown-helper">You can use markdown</span>
+    </div>
+    <%= f.submit 'Comment', class: 'button button-right' %>
+  </div>
 <% end %>
