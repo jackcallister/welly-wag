@@ -1,5 +1,5 @@
 require 'active_support/concern'
-require 'Redcarpet'
+require 'redcarpet'
 
 # Markdownable: Add markdown support to any column with the text datatype.
 #
