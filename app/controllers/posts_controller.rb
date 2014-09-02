@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
-      redirect_to root_path, notice: "Post created successfully"
+      redirect_to post_path(@post)
     else
       render :new
     end
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
 
   def destroy
     current_user.posts.find(params[:id]).delete
-    redirect_to root_path, notice: "Post created successfully"
+    redirect_to root_path
   end
 
   private
