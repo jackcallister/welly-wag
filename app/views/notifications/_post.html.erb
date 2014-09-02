@@ -1,10 +1,10 @@
 <div class="media-object notification align-middle small-image">
   <div class="media-prefix">
-    <%= render 'shared/avatar', user: notification.notifiable.post.user %>
+    <%= render 'shared/avatar', user: notification.sender %>
   </div>
 
   <div class="media-body">
-    <p><%= notification.notifiable.user.name %> commented on your <strong><%= link_to 'post', post_path(notification.notifiable) %></strong>.</p>
+    <p><%= notification.sender.name %> commented on your <strong><%= link_to 'post', post_path(notification.notifiable) %></strong>.</p>
   </div>
 </div>
 
