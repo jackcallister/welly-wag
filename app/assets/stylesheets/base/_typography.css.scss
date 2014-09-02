@@ -2,6 +2,7 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   color: $primary;
   font-weight: 300;
+  text-rendering: optimizeLegibility;
 }
 
 a {
