@@ -3,6 +3,7 @@ body {
   color: $primary;
   font-weight: 300;
   text-rendering: optimizeLegibility;
+  font-size: 15px;
 }
 
 a {
@@ -18,11 +19,21 @@ a.invert {
   &:hover { color: $link-color; }
 }
 
+p {
+  margin-bottom: 0.4em;
+}
+
+ul, ol {
+  margin-bottom: 0.6em;
+  margin-left: 2em;
+}
+
 .i { font-style: italic; }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 }
+
 h1 { font-size: 1.5em; }
 h2 { font-size: 1.4em; }
 h3 { font-size: 1.3em; }
