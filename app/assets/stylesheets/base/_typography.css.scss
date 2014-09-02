@@ -20,7 +20,7 @@ a.invert {
 }
 
 p {
-  margin-bottom: 0.6em;
+  margin-bottom: 0.8em;
   line-height: 1.4;
 }
 
@@ -48,6 +48,13 @@ em {
 }
 
 .content {
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    margin-bottom: 0.8em;
+    margin-top: 1.2em;
+  }
+
   a {
     text-decoration: underline;
   }
