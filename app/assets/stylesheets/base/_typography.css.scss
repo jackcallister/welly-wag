@@ -20,15 +20,16 @@ a.invert {
 }
 
 p {
-  margin-bottom: 0.4em;
+  margin-bottom: 0.6em;
+  line-height: 1.4;
 }
 
 ul, ol {
-  margin-bottom: 0.6em;
+  margin-bottom: 0.8em;
   margin-left: 2em;
 }
 
-.i { font-style: italic; }
+.i, i { font-style: italic; }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
@@ -44,4 +45,10 @@ h6 { font-size: 1em; }
 em {
   font-weight: 600;
   font-style: italic;
+}
+
+.content {
+  a {
+    text-decoration: underline;
+  }
 }
