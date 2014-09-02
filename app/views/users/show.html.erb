@@ -1,17 +1,19 @@
 <div class="media-container">
   <div class="media-object">
     <div class="media-body">
-      <hgroup>
+      <section>
         <h1><%= link_to @user.name, user_path(@user) %></h1>
         <% if @user == current_user %>
-          <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+          <%= render 'users/settings' %>
         <% end %>
-      </hgroup>
+      </section>
     </div>
 
-    <div class="media-image">
-      <%= render 'shared/avatar', user: @user %>
-    </div>
+    <% unless @user == current_user %>
+      <div class="media-image">
+        <%= render 'shared/avatar', user: @user %>
+      </div>
+    <% end %>
   </div>
 </div>
 
