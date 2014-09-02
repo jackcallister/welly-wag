@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :comments, only: [:show, :create], concerns: :voteable
   delete :notifications, to: 'notifications#destroy'
 
-  resources :users, only: :show
+  resources :users, only: [:show, :update]
 
   root 'posts#index'
 end
