@@ -12,21 +12,21 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
   end
 
   def create
     @post = current_user.posts.build(post_params)
 
     if @post.save
-      redirect_to post_path(@post)
+      redirect_to action: :show, id: @post.friendly_id
     else
       render :new
     end
   end
 
   def destroy
-    current_user.posts.find(params[:id]).delete
+    current_user.posts.friendly.find(params[:id]).delete
     redirect_to root_path
   end
 

@@ -33,6 +33,8 @@ gem 'faker'
 
 gem 'redcarpet'
 
+gem 'friendly_id'
+
 group :development do
   gem 'rspec-rails', '3.0.0.rc1'
   # Easy peasy matchers

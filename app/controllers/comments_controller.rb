@@ -30,7 +30,8 @@ class CommentsController < ApplicationController
 
   def redirect_success
     if comment_params[:parent_type] == 'Post'
-      redirect_to post_path(comment_params[:parent_id]), notice: "Comment created successfully"
+      @post = Post.find(comment_params[:parent_id])
+      redirect_to post_path(id: @post.friendly_id), notice: "Comment created successfully"
     else
       redirect_to comment_path(comment_params[:parent_id]), notice: "Comment created successfully"
     end
