@@ -12,6 +12,8 @@
 
   <%= render 'shared/header' %>
 
+  <%= render 'shared/flash_messages' if flash %>
+
   <main class="container">
     <%= yield %>
   </main>
