@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require zepto
-//= require zepto-animation
+//= require jquery
+//= require jquery_ujs
+//= require autosize
 //= require_tree .

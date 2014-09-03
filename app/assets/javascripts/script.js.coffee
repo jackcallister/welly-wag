@@ -8,5 +8,4 @@ $ ->
     location = $(this).data('click')
     window.location = location
 
-  $(".slide-out").on 'focus', ->
-    $(this).animate({height: '320px'}, "fast")
+  $('textarea').autosize()
