@@ -34,7 +34,7 @@ class PostsController < ApplicationController
     @post = Post.friendly.find(params[:id])
 
     if @post.update(post_params)
-      redirect_to action: :show, id: @post.friendly_id, notice: 'Post updated successfully'
+      redirect_to post_path(id: @post.friendly_id), notice: 'Good stuff your post is much improved'
     else
       render :edit
     end
