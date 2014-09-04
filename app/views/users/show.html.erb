@@ -5,7 +5,8 @@
         <h1><%= link_to @user.name, user_path(@user) %></h1>
         <% if @user == current_user %>
           <p><%= link_to 'Sign out', destroy_user_session_path, method: :get %></p>
-          <p><%= link_to 'Settings', edit_user_registration_path %></p>
+          <p><%= link_to 'Settings', edit_user_path %></p>
+          <p><%= link_to 'Change Password', edit_user_registration_path %></p>
         <% end %>
       </section>
     </div>
