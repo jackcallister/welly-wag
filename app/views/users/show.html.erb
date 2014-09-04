@@ -4,8 +4,8 @@
       <hgroup>
         <h1><%= link_to @user.name, user_path(@user) %></h1>
         <% if @user == current_user %>
-          <%= link_to 'Sign out', destroy_user_session_path, method: :get %><br>
-          <%= link_to 'Settings', edit_user_registration_path %>
+          <p><%= link_to 'Sign out', destroy_user_session_path, method: :get %></p>
+          <p><%= link_to 'Settings', edit_user_registration_path %></p>
         <% end %>
       </hgroup>
     </div>
@@ -23,7 +23,7 @@
   <div class="media-object media-header">
     <div class="media-body">
       <hgroup>
-        <h1>Previous posts</h1>
+        <h1>Your posts</h1>
       </hgroup>
     </div>
   </div>

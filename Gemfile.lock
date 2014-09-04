@@ -38,6 +38,10 @@ GEM
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
     builder (3.2.2)
+    byebug (3.4.0)
+      columnize (~> 0.8)
+      debugger-linecache (~> 1.2)
+      slop (~> 3.6)
     cancan (1.6.10)
     capistrano (3.2.1)
       i18n
@@ -63,6 +67,8 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     colorize (0.7.3)
+    columnize (0.8.9)
+    debugger-linecache (1.2.0)
     devise (3.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -219,6 +225,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  byebug
   cancan
   capistrano
   capistrano-bundler
