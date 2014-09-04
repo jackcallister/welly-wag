@@ -38,6 +38,16 @@ describe PostsController, type: :controller do
     end
   end
 
+  describe "PUT update" do
+
+    before do
+      sign_in user
+      put :update, id: link.id, post: attributes_for(:post, title: "example title")
+    end
+
+    it { link.reload; expect(link.title).to eq("example title") }
+  end
+
   describe "POST create" do
 
     context "valid attributes" do
