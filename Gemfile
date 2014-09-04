@@ -22,25 +22,22 @@ gem 'active_model_serializers'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
-
+# User authentication
 gem 'devise'
 
+# Pagination
 gem 'kaminari'
 
-gem 'faker'
-
+# Markdown parser
 gem 'redcarpet'
 
+# Use slugs for ids
 gem 'friendly_id'
 
+# User authorization
+gem "cancan"
+
 group :development do
-  gem 'rspec-rails', '3.0.0.rc1'
-  # Easy peasy matchers
-  gem 'shoulda-matchers'
-  # Clean test database with database_cleaner
-  gem 'database_cleaner', git: 'git@github.com:bmabey/database_cleaner.git'
   # Use Capistrano for deployment
   gem 'capistrano'
   gem 'capistrano-rails'
@@ -49,14 +46,40 @@ group :development do
 end
 
 group :development, :test do
+  # Testing suite
+  gem 'rspec', '~> 3.0.0.beta2'
+  gem 'rspec-rails', '3.0.0.rc1'
+
+  gem 'rspec-legacy_formatters'
+
+  # Easy peasy matchers
+  gem 'shoulda-matchers'
+
+  # Clean test database with database_cleaner
+  gem 'database_cleaner', git: 'git@github.com:bmabey/database_cleaner.git'
+
+  # Generate test fixtures
   gem 'factory_girl_rails'
+
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'spring-commands-rspec'
+
+  # Automate testing
+  gem 'guard-rspec', require: false
+
+  # Watch for file changes instead of polling the disk
+  gem 'rb-fsevent'
+
+  # Generate fake data
+  gem 'faker'
 end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
-gem 'unicorn'
+# gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
