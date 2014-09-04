@@ -4,11 +4,4 @@
   <%= f.password_field :password, autocomplete: "off", placeholder: 'New password', class: 'input' %>
 
   <%= f.password_field :current_password, autocomplete: "off", placeholder: 'Current password', class: 'input'  %>
-
-  <div class="media-object align-middle">
-    <div class="media-body">
-      Unhappy? <%= link_to "Cancel your account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
-    </div>
-    <%= f.submit 'Update', class: 'button button-right' %>
-  </div>
 <% end %>
