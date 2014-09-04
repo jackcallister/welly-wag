@@ -25,6 +25,19 @@ describe PostsController, type: :controller do
     end
   end
 
+  describe "GET edit" do
+
+    context "post author" do
+      before { sign_in user; get :edit, id: link.id }
+      it { expect(response.status).to eq(200) }
+    end
+
+    context "not the post author" do
+      before { sign_in create(:user); get :edit, id: link.id }
+      it { expect(subject).to redirect_to(root_path) }
+    end
+  end
+
   describe "POST create" do
 
     context "valid attributes" do
