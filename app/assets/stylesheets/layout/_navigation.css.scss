@@ -11,3 +11,18 @@ nav.main {
     }
   }
 }
+
+nav.sub {
+  ul {
+    @include flexbox;
+    @include align-items(center);
+    list-style: none;
+    margin: 0;
+
+    li {
+      margin-right: 2em;
+      position: relative;
+    }
+  }
+}
+
