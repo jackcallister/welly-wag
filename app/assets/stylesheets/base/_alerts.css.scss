@@ -1,10 +1,9 @@
 .alert {
   padding: 0.8em 1em;
-  border-radius: 2px;
-  margin-bottom: 1em;
+  margin-bottom: 4em;
 }
 
 .alert-notice {
-  background: $blue;
-  color: $white;
+  background: lighten($blue, 70%);
+  color: lighten($blue, 25%);
 }

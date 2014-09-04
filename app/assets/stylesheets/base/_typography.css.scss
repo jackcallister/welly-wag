@@ -2,6 +2,8 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   color: $primary;
   font-weight: 300;
+  text-rendering: optimizeLegibility;
+  font-size: 15px;
 }
 
 a {
@@ -17,11 +19,22 @@ a.invert {
   &:hover { color: $link-color; }
 }
 
-.i { font-style: italic; }
+p {
+  margin-bottom: 0.8em;
+  line-height: 1.4;
+}
+
+ul, ol {
+  margin-bottom: 0.8em;
+  margin-left: 2em;
+}
+
+.i, i { font-style: italic; }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 }
+
 h1 { font-size: 1.5em; }
 h2 { font-size: 1.4em; }
 h3 { font-size: 1.3em; }
@@ -32,4 +45,17 @@ h6 { font-size: 1em; }
 em {
   font-weight: 600;
   font-style: italic;
+}
+
+.content {
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    margin-bottom: 0.8em;
+    margin-top: 1.2em;
+  }
+
+  a {
+    text-decoration: underline;
+  }
 }

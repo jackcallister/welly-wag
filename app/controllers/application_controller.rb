@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   before_filter :update_sanitized_params, if: :devise_controller?
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
+  end
+
   private
 
   def update_sanitized_params

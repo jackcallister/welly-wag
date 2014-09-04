@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :votes, only: :create
   end
 
-  resources :posts, except: [:update, :edit], concerns: :voteable
+  resources :posts, concerns: :voteable
   resources :comments, only: [:show, :create], concerns: :voteable
   delete :notifications, to: 'notifications#destroy'
 

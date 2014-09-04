@@ -12,22 +12,37 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
   end
 
   def create
     @post = current_user.posts.build(post_params)
 
     if @post.save
-      redirect_to root_path, notice: "Post created successfully"
+      redirect_to action: :show, id: @post.friendly_id
     else
       render :new
     end
   end
 
+  def edit
+    @post = Post.friendly.find(params[:id])
+    authorize! :update, @post
+  end
+
+  def update
+    @post = Post.friendly.find(params[:id])
+
+    if @post.update(post_params)
+      redirect_to post_path(id: @post.friendly_id), notice: 'Good stuff your post is much improved'
+    else
+      render :edit
+    end
+  end
+
   def destroy
-    current_user.posts.find(params[:id]).delete
-    redirect_to root_path, notice: "Post created successfully"
+    current_user.posts.friendly.find(params[:id]).delete
+    redirect_to root_path
   end
 
   private

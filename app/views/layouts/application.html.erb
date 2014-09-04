@@ -2,19 +2,25 @@
 <html>
 <head>
   <title>the welly wag</title>
+  <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
+  <%= favicon_link_tag %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
   <%= render 'shared/header' %>
 
+  <%= render 'shared/flash_messages' if flash %>
+
   <main class="container">
     <%= yield %>
   </main>
 
+  <%= javascript_include_tag 'application' %>
+
+  <%= render 'shared/analytics' %>
 </body>
 </html>

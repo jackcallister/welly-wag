@@ -1,0 +1,20 @@
+<%= form_for @post, html: { class: 'form' } do |f| %>
+  <% if @post.errors.any? %>
+    <div class="alert alert-notice">Whoa there, that wasn't quite right. Have another crack at it.</div>
+  <% end %>
+
+  <%= f.text_field :title, placeholder: 'Post title', class: 'input' %>
+
+  <% if @post.url? %>
+    <%= f.url_field :url, placeholder: 'http://myawesomelink.co.nz', class: 'input' %>
+  <% else %>
+    <%= f.text_area :description, placeholder: 'Enter your comment. Play nice with others.' %>
+  <% end %>
+
+  <div class="media-object align-middle">
+    <div class="media-body">
+      <span>Keep your edits to typos etc.</span>
+    </div>
+    <%= f.submit 'Update', class: 'button button-right' %>
+  </div>
+<% end %>

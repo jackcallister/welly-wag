@@ -12,4 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require autosize
 //= require_tree .

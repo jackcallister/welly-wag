@@ -13,6 +13,7 @@
       <div class="content">
         <%= @post.description_html %>
       </div>
+      <%= link_to 'Edit', edit_post_path(id: @post.friendly_id) if current_user && current_user == @post.user %>
     </div>
 
     <div class="media-image">

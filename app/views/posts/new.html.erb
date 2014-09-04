@@ -1,7 +1,7 @@
 <div class="media-container">
   <div class="media-object">
     <div class="media-body">
-      <p>Try to keep posts relevant to what the community would like to see or hear. Unless it's a really funny lolcat.</p>
+      <p>Try to keep posts relevant. Think about what the Wellington community would like to see or hear. For example posting a link to show off your work or an interesting tidbit of local news. Alternatively posting a personal story or asking the community a topical question.</p>
     </div>
   </div>
 </div>
@@ -14,10 +14,10 @@
   <%= f.text_field :title, placeholder: 'Post title', class: 'input' %>
   <%= f.url_field :url, placeholder: 'http://myawesomelink.co.nz', class: 'input' %>
   <span class="helper-text">Include a url <em>or</em> a comment</span>
-  <%= f.text_area :description, placeholder: 'Enter your comment. Play nice with others.', class: 'slide-out' %>
+  <%= f.text_area :description, placeholder: 'Enter your comment. Play nice with others.' %>
   <div class="media-object align-middle">
     <div class="media-body">
-      <span class="markdown-helper">You can use markdown</span>
+      <span>You can use markdown</span>
     </div>
     <%= f.submit 'Share', class: 'button button-right' %>
   </div>

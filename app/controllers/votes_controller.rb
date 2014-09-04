@@ -11,6 +11,6 @@ class VotesController < ApplicationController
 
   def load_voteable
     resource, id = request.path.split('/')[1, 2]
-    @voteable = resource.singularize.classify.constantize.find(id)
+    @voteable = resource.singularize.classify.constantize.friendly.find(id)
   end
 end
