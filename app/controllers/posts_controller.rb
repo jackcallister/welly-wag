@@ -25,6 +25,14 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @post = Post.friendly.find(params[:id])
+    authorize! :update, @post
+  end
+
+  def update
+  end
+
   def destroy
     current_user.posts.friendly.find(params[:id]).delete
     redirect_to root_path
