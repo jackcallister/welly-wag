@@ -25,5 +25,5 @@
 <%= render 'comments/form', post: @post, parent: @post %>
 
 <div class="comments">
-  <%= render 'comments/comments', comments: @post.comments.root.ranked %>
+  <%= render 'comments/comments', comments: @comments.root.ranked %>
 </div>

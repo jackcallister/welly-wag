@@ -13,6 +13,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.friendly.find(params[:id])
+    @comments = @post.comments.includes(:user)
   end
 
   def create
