@@ -47,7 +47,7 @@ end
 
 group :development, :test do
   # Testing suite
-  gem 'rspec', '~> 3.0.0.beta2'
+  # gem 'rspec', '~> 3.0.0.beta2'
   gem 'rspec-rails', '3.0.0.rc1'
 
   gem 'rspec-legacy_formatters'

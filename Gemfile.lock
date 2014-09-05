@@ -244,7 +244,6 @@ DEPENDENCIES
   rails (= 4.1.4)
   rb-fsevent
   redcarpet
-  rspec (~> 3.0.0.beta2)
   rspec-legacy_formatters
   rspec-rails (= 3.0.0.rc1)
   sass-rails (~> 4.0.3)
