@@ -35,7 +35,10 @@ gem 'redcarpet'
 gem 'friendly_id'
 
 # User authorization
-gem "cancan"
+gem 'cancan'
+
+# Environment variables
+gem 'dotenv-rails'
 
 group :development do
   # Use Capistrano for deployment
