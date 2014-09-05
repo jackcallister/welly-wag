@@ -39,4 +39,9 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { :host => 'welly-wag.com'}
 
   config.action_mailer.smtp_settings = { :address => 'localhost', :port => 1025 }
+
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.console = true
+  end
 end

@@ -24,7 +24,7 @@ class Post < ActiveRecord::Base
   validates :url, length: { is: 0, message: 'must be blank' }, unless: 'description.blank?'
   validates :description, length: { is: 0, message: 'must be blank' }, unless: 'url.blank?'
 
-  scope :ranked, -> { all.sort_by(&:ranking).reverse }
+  scope :ranked, -> { includes(:user).sort_by(&:ranking).reverse }
 
   def display_url
     URI(url).host if url
