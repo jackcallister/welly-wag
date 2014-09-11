@@ -6,7 +6,7 @@
   <div class="media-body">
     <hgroup>
       <h1><%= link_to post.title, post_path(id: post.friendly_id) %></h1>
-      <%= link_to post.display_url_with_brackets, post.url, class: 'i', target: '_blank' if post.url? %>
+      <%= link_to display_url(post), post.url, class: 'i', target: '_blank' if post.url? %>
     </hgroup>
     <div class="content">
       <%= post.short_description_html %>
