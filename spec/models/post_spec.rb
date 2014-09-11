@@ -2,24 +2,27 @@ require 'spec_helper'
 
 describe Post do
 
-  describe "#display_url" do
-
-    context "with a url" do
-      before { subject.url = "http://example.com/foo/bar/baz" }
-
-      it "should remove the protocol and trail" do
-        expect(subject.display_url).to eq "example.com"
-      end
-    end
-
-    context "without a url" do
-      it { expect(subject.display_url).to be_nil }
-    end
+  it "has a valid factory" do
+    expect(build(:post).valid?).to eq(true)
   end
 
-  describe "#display_url_with_brackets" do
-    before { subject.url = "http://example.com/foo/bar/baz" }
+  it "is invalid without a title" do
+    expect(build(:post, title: '').valid?).to eq(false)
+  end
 
-    it { expect(subject.display_url_with_brackets).to eq "(example.com)" }
+  it "is invalid without a url if there is no description" do
+    expect(build(:post, url: '', description: '').valid?).to eq(false)
+  end
+
+  it "is valid with a url and description" do
+    expect(build(:post, url: 'http://google.com', description: 'Test').valid?).to eq(true)
+  end
+
+  it "is valid with a url" do
+    expect(build(:post, url: 'http://google.com', description: '').valid?).to eq(true)
+  end
+
+  it "is valid with a description" do
+    expect(build(:post, url: '', description: 'Test').valid?).to eq(true)
   end
 end
