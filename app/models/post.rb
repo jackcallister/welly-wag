@@ -16,22 +16,9 @@ class Post < ActiveRecord::Base
   has_many :notifications, as: :notifiable
 
   validates :title, presence: true
-  validates :url, format: URI::regexp(%w(http https)), unless: 'description.present?'
-
-  validates :url, presence: true, :if => Proc.new { |p| p.description.blank? }
-  validates :description, presence: true, :if => Proc.new { |p| p.url.blank? }
-
-  validates :url, length: { is: 0, message: 'must be blank' }, unless: 'description.blank?'
-  validates :description, length: { is: 0, message: 'must be blank' }, unless: 'url.blank?'
+  validates :url, url: { allow_blank: true }
+  validates :url, presence: true, if: Proc.new { |p| p.description.blank? }
 
   scope :ranked, -> { all.sort_by(&:ranking).reverse }
-
-  def display_url
-    URI(url).host if url
-  end
-
-  def display_url_with_brackets
-    "(" + display_url + ")" if url
-  end
 end
 

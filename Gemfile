@@ -40,6 +40,9 @@ gem 'cancan'
 # Environment variables
 gem 'dotenv-rails'
 
+# Wrapper for URI parsing
+gem 'validate_url'
+
 group :development do
   # Use Capistrano for deployment
   gem 'capistrano'

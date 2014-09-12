@@ -11,6 +11,7 @@ class VotesController < ApplicationController
 
   def load_voteable
     resource, id = request.path.split('/')[1, 2]
-    @voteable = resource.singularize.classify.constantize.friendly.find(id)
+    klass = resource.singularize.classify.constantize
+    @voteable = klass.respond_to?(:friendly) ? klass.friendly.find(id) : klass.find(id)
   end
 end
