@@ -17,11 +17,11 @@ ActiveRecord::Schema.define(version: 20140903071228) do
   enable_extension "plpgsql"
 
   create_table "comments", force: true do |t|
+    t.integer  "post_id",     null: false
     t.integer  "user_id",     null: false
     t.text     "content",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "post_id"
     t.integer  "parent_id",   null: false
     t.string   "parent_type", null: false
   end
