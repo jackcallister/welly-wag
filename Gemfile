@@ -37,6 +37,9 @@ gem 'friendly_id'
 # User authorization
 gem "cancan"
 
+# Cron scheduling
+gem 'whenever'
+
 group :development do
   # Use Capistrano for deployment
   gem 'capistrano'
