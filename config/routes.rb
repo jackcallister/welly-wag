@@ -12,5 +12,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :update, :edit]
 
+  get 'digest/unsubscribe/:signature', to: 'digest#unsubscribe', as: :digest_unsubscribe
+
   root 'posts#index'
 end

@@ -339,7 +339,7 @@
                         <tr>
                           <td align="center">
                             <center>
-                              <p style="text-align:center;">Not interested? All good, you can unsubscribe <a href="#">here</a></p>
+                              <p style="text-align:center;">Not interested? All good, you can unsubscribe <%= link_to digest_unsubscribe_url(signature: @user.access_token) %></p>
                             </center>
                           </td>
                           <td class="expander"></td>
