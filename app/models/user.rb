@@ -24,17 +24,18 @@ class User < ActiveRecord::Base
   end
 
   def access_token
-    verifier.generate(id)
+    self.verifier.generate(id)
   end
 
-  def read_access_token(signature)
+  def self.find_by_access_token(signature)
+    byebug
     id = verifier.verify(signature)
-    self.class.find_by_id(id)
+    find(id)
   rescue ActiveSupport::MessageVerifier.InvalidSignature
     nil
   end
 
-  def verifier
+  def self.verifier
     ActiveSupport::MessageVerifier.new(Rails.application.secrets.secret_key_base)
   end
 end
