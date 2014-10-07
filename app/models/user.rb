@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include Tokenable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -23,19 +24,4 @@ class User < ActiveRecord::Base
     update_attribute(:send_digest, false)
   end
 
-  def access_token
-    self.verifier.generate(id)
-  end
-
-  def self.find_by_access_token(signature)
-    byebug
-    id = verifier.verify(signature)
-    find(id)
-  rescue ActiveSupport::MessageVerifier.InvalidSignature
-    nil
-  end
-
-  def self.verifier
-    ActiveSupport::MessageVerifier.new(Rails.application.secrets.secret_key_base)
-  end
 end

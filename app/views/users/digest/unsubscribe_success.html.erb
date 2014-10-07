@@ -1,3 +1,2 @@
-<p>
-  No worries, <%= @user.email %> has been successfully unsubscribed from the digest
-</p>
+<p>No worries, we won't send any more digest emails to <%= @user.email %>.</p>
+<p>Check out your <%= link_to 'profile', user_path(@user) %> if you want to resubscribe.</p>
