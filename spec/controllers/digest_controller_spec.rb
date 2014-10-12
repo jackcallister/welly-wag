@@ -13,10 +13,12 @@ describe DigestController, type: :controller do
     end
 
     context "with valid params" do
-      before { get :unsubscribe, signature: user.access_token }
-      subject { User.find(user.id) }
+      before do
+        get :unsubscribe, signature: user.access_token
+      end
+
       it { expect(response.status).to eq(200) }
-      it { expect(subject.send_digest).to be false }
+      it { expect(assigns(:user).send_digest).to be false }
       it { expect(response).to render_template('users/digest/unsubscribe_success') }
     end
   end
