@@ -6,6 +6,11 @@ module Tokenable
   extend ActiveSupport::Concern
 
   def access_token
+    unless persisted?
+      raise RecordNotPersistedError,
+        "#{self.class} must be saved before generating an access token"
+    end
+
     self.class.verifier.generate(id)
   end
 
@@ -14,7 +19,7 @@ module Tokenable
       id = verifier.verify(signature)
       self.find(id)
 
-      rescue ActiveSupport::MessageVerifier.InvalidSignature
+      rescue ActiveSupport::MessageVerifier::InvalidSignature
       nil
     end
 
@@ -22,4 +27,6 @@ module Tokenable
       ActiveSupport::MessageVerifier.new(Rails.application.secrets.secret_key_base)
     end
   end
+
+  class RecordNotPersistedError < StandardError; end
 end
